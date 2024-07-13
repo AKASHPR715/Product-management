@@ -1,18 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import View from './components/View'
-import './App.css'
+import React, { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import View from './components/View';
+import './App.css';
+import Add from './components/Add';
+import { Demoaxios } from './components/Demoaxios';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      
-      <View/>
+      <h1>Welcome To Product Management Application</h1>
+      <View />
+      <br />
+      <Routes>
+        <Route path="/" element={<Demoaxios />} />
+        <Route path="/add" element={<Add persons={{ fname: 'akash', department: 'english literature', semester: 's4' }} />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
